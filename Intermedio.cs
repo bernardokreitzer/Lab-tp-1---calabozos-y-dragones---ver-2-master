@@ -36,8 +36,11 @@ namespace Lab_tp_1___calabozos_y_dragones
                 foreach (Pieza pieza in piezas)
                     pieza.Evaluar(jugador);
             }
-            foreach(Dragon dragon in piezas)
-                MoverDragon(dragon);
+            foreach(Pieza dragon in piezas)
+            {
+                if (dragon is Dragon)
+                    MoverDragon((Dragon)dragon);
+            }
         }
 
         public void MoverDragon(Dragon dragon)

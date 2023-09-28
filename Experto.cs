@@ -18,6 +18,7 @@ namespace Lab_tp_1___calabozos_y_dragones
             for(int i = 0; i < 3; i++)
             {
                 calabozos[i] = new Calabozo();
+                piezas.Add(calabozos[i]);
             }
         }
     }

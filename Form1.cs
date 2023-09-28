@@ -198,9 +198,12 @@ namespace Lab_tp_1___calabozos_y_dragones
 
                     for (int n = 0; n < tableroIntermedio.CantidadDePiezas; n++)
                     {
-                        Dragon dragon = (Dragon)tableroIntermedio.VerPieza(n);
-                        lbResultados.Items.Add(dragon.VerDescripcion());
-                        lbResultados.SelectedIndex = lbResultados.Items.Count - 1;
+                        if(tableroIntermedio.VerPieza(n) is Dragon)
+                        {
+                            Dragon dragon = (Dragon)tableroIntermedio.VerPieza(n);
+                            lbResultados.Items.Add(dragon.VerDescripcion());
+                            lbResultados.SelectedIndex = lbResultados.Items.Count - 1;
+                        }
                     }
                 }
 
@@ -211,14 +214,6 @@ namespace Lab_tp_1___calabozos_y_dragones
                     Jugador jugador = nuevo.Tablero.VerJugador(n);
 
                     //INICIO GRAFICOS
-                    // Este linea mueve al caballero horizontalmente, sumandole 50 a caballeroVerdeX
-                    //pBCaballeroVerde.Location = new Point(caballeroVerdeX + jugador.Posicion * 50, caballeroVerdeY);
-
-                    //fila = (cel - 1) / Columnas;
-                    //columna = (cel - 1) % Columnas;
-
-                    //x = ancho * columna;
-                    //y = alto * fila;
 
                     int cel = jugador.Posicion;
                     int Columnas = 10;
@@ -232,7 +227,7 @@ namespace Lab_tp_1___calabozos_y_dragones
                     caballeroRojoY = alto * fila;
 
                     // object creation and path selection
-                    SoundPlayer horses = new SoundPlayer(@"E:\Users\Puesto-13\Documents\GitHub\Lab-tp-1---calabozos-y-dragones---ver-2-master\resources\horse-fast-gallop - short2.wav");
+                    SoundPlayer horses = new SoundPlayer(@"C:\Users\barni\Google Drive\UTN\Tecnicatura en Programacion\Cursado\Laboratorio II\Trabajo Practico 1\Lab-tp-1---calabozos-y-dragones---ver-2-master\resources\horse-fast-gallop - short2.wav");
 
                     // apply the method to play sound
                     horses.Play();
@@ -252,12 +247,11 @@ namespace Lab_tp_1___calabozos_y_dragones
                     lbResultados.Items.Add(linea);
                     lbResultados.SelectedIndex = lbResultados.Items.Count - 1;
                 }
-
                 lbResultados.Items.Add("------");
             }
             else
             {
-                SoundPlayer winner = new SoundPlayer(@"E:\Users\Puesto-13\Documents\GitHub\Lab-tp-1---calabozos-y-dragones---ver-2-master\resources\Ta Da-.wav");
+                SoundPlayer winner = new SoundPlayer(@"C:\Users\barni\Google Drive\UTN\Tecnicatura en Programacion\Cursado\Laboratorio II\Trabajo Practico 1\Lab-tp-1---calabozos-y-dragones---ver-2-master\resources\Ta Da-.wav");
 
                 winner.Play();
                 MessageBox.Show("Finalizó!");

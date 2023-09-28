@@ -62,14 +62,14 @@ namespace Lab_tp_1___calabozos_y_dragones
 
         public virtual void Avanzar()
         {
+            Avance = dado.Next(1, 7);
+
+            PosicionAnterior = Posicion;
+
             if (!EnCalabozo)
             {
-                Avance = dado.Next(1, 7);
-
-                PosicionAnterior = Posicion;
                 Posicion += Avance;
             }
-            EnCalabozo = false;
         }
 
 
