@@ -13,7 +13,7 @@ namespace Lab_tp_1___calabozos_y_dragones
         
         public Calabozo()
         {
-            Posicion = Juego.rdm.Next(2, 51);
+            Posicion = Juego.rdm.Next(2, 50);
         }
 
         public override void Evaluar(Jugador jugador)

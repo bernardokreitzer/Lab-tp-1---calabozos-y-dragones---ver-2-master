@@ -24,8 +24,6 @@ namespace Lab_tp_1___calabozos_y_dragones
         int caballeroX = 10;
         int caballeroY = 5;
 
-
-
         int dragonRojoY = 161;
         int dragonRojoX = 4;
 
@@ -33,10 +31,10 @@ namespace Lab_tp_1___calabozos_y_dragones
         int dragonVerdeX = 2;
 
         int cantidadMaxCaballeros = 4;
-        int cantidadMaxDragones = 4;
+        int cantidadMaxDragones = 8;
 
         PictureBox[] caballeros = new PictureBox[4];
-        PictureBox[] dragones = new PictureBox[4];
+        PictureBox[] dragones = new PictureBox[8];
         PictureBox[] calabozos = new PictureBox[3];
         int cantidadJugadores;
         int cantidadDragones;
@@ -46,17 +44,7 @@ namespace Lab_tp_1___calabozos_y_dragones
         {
             InitializeComponent();
 
-            
-
             // posicionar picturebox inicial
-
-            // Calcula la nueva posición del PictureBox
-            //int caballeroRojoX = 3;
-            // int caballeroRojoY = 5;
-
-            // Point [] caballeros = new Point[4];
-
-            //dragones = new PictureBox[cantidadMaxCaballeros * 2];
 
             caballeros[0] = pbCaballeroRojo;
             caballeros[1] = pBCaballeroVerde;
@@ -72,6 +60,10 @@ namespace Lab_tp_1___calabozos_y_dragones
             dragones[1] = pbDragonRojo2;
             dragones[2] = pbDragonVerde1;
             dragones[3] = pbDragonVerde2;
+            dragones[4] = pbDragonAzul1;
+            dragones[5] = pbDragonAzul2;
+            dragones[6] = pbDragonNegro1;
+            dragones[7] = pbDragonNegro2;
 
             for (int i = 0; i < cantidadMaxDragones; i++)
             {
@@ -96,11 +88,6 @@ namespace Lab_tp_1___calabozos_y_dragones
             pbCaballeroRojo.BackColor = Color.Transparent;
             pbDragonRojo1.Location = new Point(dragonRojoX, dragonRojoY);
 
-            // Ocultar dragones 
-            pbDragonRojo1.Visible = false;
-            pbDragonRojo2.Visible = false;
-            pbDragonVerde1.Visible = false;
-            pbDragonVerde2.Visible = false;
 
             caballeros[1].Location = new Point(caballeroVerdeX, caballeroVerdeY);
             pBCaballeroVerde.BackColor = Color.Transparent;
@@ -282,11 +269,15 @@ namespace Lab_tp_1___calabozos_y_dragones
                 winner.Play();
                 MessageBox.Show("Finalizó!");
 
-                for (int n = 0; n < nuevo.Tablero.CantidadJugadores; n++)
+                bool salir = false;
+                for (int n = 0; n < nuevo.Tablero.CantidadJugadores && !salir; n++)
                 {
                     Jugador jug = (Jugador)(nuevo.Tablero.VerJugador(n));
                     if (jug.Ganador)
+                    {
                         nuevo.AgregarPartida(jug.Nombre);
+                        salir = true;
+                    }
                 }
 
                 btnJugar.Enabled = false;

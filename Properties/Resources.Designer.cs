@@ -123,6 +123,26 @@ namespace Lab_tp_1___calabozos_y_dragones.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dragon_azul_60x60 {
+            get {
+                object obj = ResourceManager.GetObject("dragon_azul_60x60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dragon_negro_60x60 {
+            get {
+                object obj = ResourceManager.GetObject("dragon_negro_60x60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dragon_rojo_60x60_bg {
             get {
                 object obj = ResourceManager.GetObject("dragon_rojo_60x60-bg", resourceCulture);

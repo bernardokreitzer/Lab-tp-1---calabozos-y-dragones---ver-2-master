@@ -45,7 +45,7 @@ namespace Lab_tp_1___calabozos_y_dragones
 
         public void MoverDragon(Dragon dragon)
         {
-            dragon.Posicion = Juego.rdm.Next(1, 51);
+            dragon.Posicion = Juego.rdm.Next(1, 50);
         }
         public Pieza VerPieza(int idx)
         {

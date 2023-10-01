@@ -133,6 +133,8 @@
     <None Include="resources\caballero_negro_60_px-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="resources\dragon_negro_60x60.png" />
+    <None Include="resources\dragon_azul_60x60.png" />
     <Content Include="resources\horse-fast-gallop - short2.wav" />
     <Content Include="resources\Ta Da-.wav" />
     <None Include="resources\llegada.png" />

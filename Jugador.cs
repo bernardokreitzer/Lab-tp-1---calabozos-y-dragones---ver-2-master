@@ -16,7 +16,6 @@ namespace Lab_tp_1___calabozos_y_dragones
         {
             get
             {
-                //string devolver;
                 if (this.EnCalabozo)
                 {
                     return nombre + " (está en el Calabozo)";
@@ -71,8 +70,5 @@ namespace Lab_tp_1___calabozos_y_dragones
                 Posicion += Avance;
             }
         }
-
-
-
     }
 }
