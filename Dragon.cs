@@ -14,7 +14,6 @@ namespace Lab_tp_1___calabozos_y_dragones
 
         public Dragon(string dueño)
         {
-            //Nombre = nombre;
             Dueño = dueño;
             Posicion = Juego.rdm.Next(2, 51);
         }
@@ -25,10 +24,12 @@ namespace Lab_tp_1___calabozos_y_dragones
                 if(jugador.Nombre == Dueño)
                 {
                     jugador.Posicion += 5;
+                    System.Windows.Forms.MessageBox.Show("Mi dragon");
                 }
                 else
                 {
                     jugador.Posicion -= 5;
+                    System.Windows.Forms.MessageBox.Show("dragon enemigo");
                 }
             }
         }

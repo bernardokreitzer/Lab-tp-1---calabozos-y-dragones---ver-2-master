@@ -21,8 +21,8 @@ namespace Lab_tp_1___calabozos_y_dragones
         int caballeroVerdeX = 5;
         int caballeroVerdeY = 8;
 
-        int caballeroRojoX = 10;
-        int caballeroRojoY = 5;
+        int caballeroX = 10;
+        int caballeroY = 5;
 
 
 
@@ -33,10 +33,13 @@ namespace Lab_tp_1___calabozos_y_dragones
         int dragonVerdeX = 2;
 
         int cantidadMaxCaballeros = 4;
+        int cantidadMaxDragones = 4;
 
         PictureBox[] caballeros = new PictureBox[4];
-        PictureBox[] dragones;
+        PictureBox[] dragones = new PictureBox[4];
+        PictureBox[] calabozos = new PictureBox[3];
         int cantidadJugadores;
+        int cantidadDragones;
         SoundPlayer soundPlayer;
 
         public Form1()
@@ -53,7 +56,7 @@ namespace Lab_tp_1___calabozos_y_dragones
 
             // Point [] caballeros = new Point[4];
 
-            dragones = new PictureBox[cantidadMaxCaballeros * 2];
+            //dragones = new PictureBox[cantidadMaxCaballeros * 2];
 
             caballeros[0] = pbCaballeroRojo;
             caballeros[1] = pBCaballeroVerde;
@@ -65,24 +68,43 @@ namespace Lab_tp_1___calabozos_y_dragones
                 caballeros[i].Visible = false;
             }
 
+            dragones[0] = pbDragonRojo1;
+            dragones[1] = pbDragonRojo2;
+            dragones[2] = pbDragonVerde1;
+            dragones[3] = pbDragonVerde2;
+
+            for (int i = 0; i < cantidadMaxDragones; i++)
+            {
+                dragones[i].Visible = false;
+            }
+
+            calabozos[0] = pbCalabozo1;
+            calabozos[1] = pbCalabozo2;
+            calabozos[2] = pbCalabozo3;
+
+            for (int i = 0; i < 3; i++)
+            {
+                calabozos[i].Visible = false;
+            }
+
             // Asigna un título a la ventana de la aplicación
             this.Text = "Calabozos y Dragones";
 
 
             // Establece la nueva posición
-            caballeros[0].Location = new Point(caballeroRojoX, caballeroRojoY);
+            caballeros[0].Location = new Point(caballeroX, caballeroY);
             pbCaballeroRojo.BackColor = Color.Transparent;
-            pbDragonRojo.Location = new Point(dragonRojoX, dragonRojoY);
+            pbDragonRojo1.Location = new Point(dragonRojoX, dragonRojoY);
 
             // Ocultar dragones 
-            pbDragonRojo.Visible = false;
+            pbDragonRojo1.Visible = false;
             pbDragonRojo2.Visible = false;
-            pbDragonVerde.Visible = false;
+            pbDragonVerde1.Visible = false;
             pbDragonVerde2.Visible = false;
 
             caballeros[1].Location = new Point(caballeroVerdeX, caballeroVerdeY);
             pBCaballeroVerde.BackColor = Color.Transparent;
-            pbDragonVerde.Location = new Point(dragonVerdeX, dragonVerdeY);
+            pbDragonVerde1.Location = new Point(dragonVerdeX, dragonVerdeY);
 
             // Tamaño de cada cuadrícula
             int gridSize = 50;
@@ -110,49 +132,8 @@ namespace Lab_tp_1___calabozos_y_dragones
                     panelTablero.Controls.Add(cuadricula);
                 }
             } // fin Cuadricula
-
-           
-
-
-
-
         }
 
-
-        private void btnAvanzar_Click(object sender, EventArgs e)
-        {
-            // Este metodo mueve al caballero horizontalmente, sumandole 50 a nuevaX
-
-            // Calcula la nueva posición del PictureBox
-            caballeroRojoX = pbCaballeroRojo.Left + (50);
-            caballeroRojoY = pbCaballeroRojo.Top;
-
-            dragonRojoX = caballeroRojoX;
-
-            if (caballeroRojoX >= 450) caballeroRojoX = 450;
-
-            // Establece la nueva posición
-            pbCaballeroRojo.Location = new Point(caballeroRojoX, caballeroRojoY);
-            pbDragonRojo.Location = new Point(dragonRojoX, dragonRojoY);
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Este metodo mueve al caballero horizontalmente, sumandole 50 a nuevaX
-
-            // Calcula la nueva posición del PictureBox
-            caballeroVerdeX = pBCaballeroVerde.Left + (50);
-            dragonVerdeX = caballeroVerdeX;
-
-
-            if (caballeroVerdeX >= 450) caballeroVerdeX = 450;
-
-            // Establece la nueva posición
-            pBCaballeroVerde.Location = new Point(caballeroVerdeX, caballeroVerdeY);
-            pbDragonVerde.Location = new Point(dragonVerdeX, dragonVerdeY);
-
-        }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -166,11 +147,32 @@ namespace Lab_tp_1___calabozos_y_dragones
                 cantidadJugadores = Convert.ToInt32(fDato.nudCantidad.Value);
                 int nivel = fDato.cbNivel.SelectedIndex + 1;
 
-                for (int i = 0; i < cantidadJugadores + 1; i++)
+                nuevo.IniciarJuego(jugador, cantidadJugadores, nivel);
+
+                for (int i = 0; i <= cantidadJugadores; i++)
                 {
                     caballeros[i].Visible = true;
                 }
-                nuevo.IniciarJuego(jugador, cantidadJugadores, nivel);
+
+                if (nuevo.Tablero is Intermedio)
+                {
+                    Intermedio tableroIntermedio = (Intermedio)nuevo.Tablero;
+
+                    for (int n = 0; n < tableroIntermedio.CantidadJugadores*2; n++)
+                    {
+                        dragones[n].Visible = true;
+                    }
+                }
+
+                if (nuevo.Tablero is Experto)
+                {
+                    Experto tableroExperto = (Experto)nuevo.Tablero;
+
+                    for (int n = 0; n < tableroExperto.calabozos.Length; n++)
+                    {
+                        calabozos[n].Visible = true;
+                    }
+                }
 
                 btnJugar.Enabled = true;
             }
@@ -189,6 +191,19 @@ namespace Lab_tp_1___calabozos_y_dragones
                         Calabozo calabozo = tableroExperto.calabozos[n];
                         lbResultados.Items.Add(calabozo.VerDescripcion());
                         lbResultados.SelectedIndex = lbResultados.Items.Count - 1;
+
+                        int cel = calabozo.Posicion;
+                        int Columnas = 10;
+                        int ancho = 50;
+                        int alto = 50;
+
+                        int fila = (cel - 1) / Columnas;
+                        int columna = (cel - 1) % Columnas;
+
+                        caballeroX = ancho * columna;
+                        caballeroY = alto * fila;
+
+                        calabozos[n].Location = new Point(caballeroX, caballeroY);
                     }
                 }
 
@@ -203,6 +218,19 @@ namespace Lab_tp_1___calabozos_y_dragones
                             Dragon dragon = (Dragon)tableroIntermedio.VerPieza(n);
                             lbResultados.Items.Add(dragon.VerDescripcion());
                             lbResultados.SelectedIndex = lbResultados.Items.Count - 1;
+
+                            int cel = dragon.Posicion;
+                            int Columnas = 10;
+                            int ancho = 50;
+                            int alto = 50;
+
+                            int fila = (cel - 1) / Columnas;
+                            int columna = (cel - 1) % Columnas;
+
+                            caballeroX = ancho * columna;
+                            caballeroY = alto * fila;
+
+                            dragones[n].Location = new Point(caballeroX, caballeroY);
                         }
                     }
                 }
@@ -223,8 +251,8 @@ namespace Lab_tp_1___calabozos_y_dragones
                     int fila = (cel - 1) / Columnas;
                     int columna = (cel - 1) % Columnas;
 
-                    caballeroRojoX = ancho * columna;
-                    caballeroRojoY = alto * fila;
+                    caballeroX = ancho * columna;
+                    caballeroY = alto * fila;
 
                     // object creation and path selection
                     SoundPlayer horses = new SoundPlayer(@"C:\Users\barni\Google Drive\UTN\Tecnicatura en Programacion\Cursado\Laboratorio II\Trabajo Practico 1\Lab-tp-1---calabozos-y-dragones---ver-2-master\resources\horse-fast-gallop - short2.wav");
@@ -232,11 +260,9 @@ namespace Lab_tp_1___calabozos_y_dragones
                     // apply the method to play sound
                     horses.Play();
 
-                    //Thread.Sleep(500);
+                    
                     // esta linea mueve a los jugadores, loopea el arreglo de picturebox, donde estan los caballeros
-                    caballeros[n].Location = new Point(caballeroRojoX , caballeroRojoY);
-                   // SystemSounds.Beep.Play(); 
-                    //SystemSounds.Asterisk.Play();
+                    caballeros[n].Location = new Point(caballeroX , caballeroY);
                    
 
                     //FIN GRAFICOS
@@ -277,6 +303,14 @@ namespace Lab_tp_1___calabozos_y_dragones
             fHistorial.ShowDialog();
 
             fHistorial.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            while (nuevo.Tablero.Termino() == false)
+            {
+                btnJugar.PerformClick();
+            }        
         }
     }
 }

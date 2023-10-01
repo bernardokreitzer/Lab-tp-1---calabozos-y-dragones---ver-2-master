@@ -52,7 +52,7 @@ namespace Lab_tp_1___calabozos_y_dragones
             }
         }
         private bool enCalabozo = false;
-        public bool EnCalabozo { get; set; }
+        public bool EnCalabozo { get { return enCalabozo; } set { enCalabozo = value; } }
 
         public Jugador(string nombre) 
         {

@@ -42,10 +42,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(83, 115);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(62, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 16);
+            this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "Nivel";
             // 
@@ -56,33 +55,36 @@
             "Basico",
             "Intermedio",
             "Experto"});
-            this.cbNivel.Location = new System.Drawing.Point(166, 112);
-            this.cbNivel.Margin = new System.Windows.Forms.Padding(4);
+            this.cbNivel.Location = new System.Drawing.Point(124, 91);
             this.cbNivel.Name = "cbNivel";
-            this.cbNivel.Size = new System.Drawing.Size(240, 24);
+            this.cbNivel.Size = new System.Drawing.Size(181, 21);
             this.cbNivel.TabIndex = 14;
+            this.cbNivel.Text = "Basico";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(83, 79);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(62, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(203, 16);
+            this.label2.Size = new System.Drawing.Size(159, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "Cantidad de Jugadores Virtuales";
             // 
             // nudCantidad
             // 
-            this.nudCantidad.Location = new System.Drawing.Point(314, 77);
-            this.nudCantidad.Margin = new System.Windows.Forms.Padding(4);
+            this.nudCantidad.Location = new System.Drawing.Point(236, 63);
             this.nudCantidad.Maximum = new decimal(new int[] {
             3,
             0,
             0,
             0});
+            this.nudCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudCantidad.Name = "nudCantidad";
-            this.nudCantidad.Size = new System.Drawing.Size(83, 22);
+            this.nudCantidad.Size = new System.Drawing.Size(62, 20);
             this.nudCantidad.TabIndex = 12;
             this.nudCantidad.Value = new decimal(new int[] {
             1,
@@ -93,20 +95,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 45);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(62, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 16);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Nombre";
             // 
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button2.Location = new System.Drawing.Point(73, 168);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(55, 136);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 10;
             this.button2.Text = "Aceptar";
             this.button2.UseVisualStyleBackColor = true;
@@ -114,27 +114,25 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(332, 168);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(249, 136);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(166, 41);
-            this.tbNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNombre.Location = new System.Drawing.Point(124, 33);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(247, 22);
+            this.tbNombre.Size = new System.Drawing.Size(186, 20);
             this.tbNombre.TabIndex = 8;
             // 
             // FormDatos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 255);
+            this.ClientSize = new System.Drawing.Size(365, 207);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbNivel);
             this.Controls.Add(this.label2);
@@ -143,6 +141,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbNombre);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDatos";
             this.Text = "Nuevo Juego";
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();

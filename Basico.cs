@@ -42,13 +42,20 @@ namespace Lab_tp_1___calabozos_y_dragones
         public bool Termino()
         {
             bool haFinalizado = false;
-            foreach (Jugador jugador in jugadores)
+            for(int i = 0; i < CantidadJugadores && !haFinalizado; i++)
             {
-                if (jugador.Ganador == true)
+                if (((Jugador)jugadores[i]).Ganador == true)
                 {
                     haFinalizado = true;
                 }
             }
+            //foreach (Jugador jugador in jugadores)
+            //{
+            //    if (jugador.Ganador == true)
+            //    {
+            //        haFinalizado = true;
+            //    }
+            //}
             return haFinalizado;
         }
     }
