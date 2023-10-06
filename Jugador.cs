@@ -18,7 +18,7 @@ namespace Lab_tp_1___calabozos_y_dragones
             {
                 if (this.EnCalabozo)
                 {
-                    return nombre + " (está en el Calabozo)";
+                    return nombre + " (Cayó en el Calabozo!)";
                 }
                 return nombre;
             }

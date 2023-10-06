@@ -24,12 +24,12 @@ namespace Lab_tp_1___calabozos_y_dragones
                 if(jugador.Nombre == Dueño)
                 {
                     jugador.Posicion += 5;
-                    System.Windows.Forms.MessageBox.Show("Mi dragon");
+                    System.Windows.Forms.MessageBox.Show($"{jugador.Nombre} se encontró con su dragón");
                 }
                 else
                 {
                     jugador.Posicion -= 5;
-                    System.Windows.Forms.MessageBox.Show("dragon enemigo");
+                    System.Windows.Forms.MessageBox.Show($"{jugador.Nombre} se encontró el dragón de {Dueño}");
                 }
             }
         }
